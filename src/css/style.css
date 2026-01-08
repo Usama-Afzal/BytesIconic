@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #6366f1;
+    --color-secondary: #8b5cf6;
+    --color-accent: #06b6d4;
+    --color-dark-bg: #0a0a0f;
+    --color-dark-surface: #121218;
+    --color-dark-card: #1a1a24;
+
+    --font-sans: 'Space Grotesk', sans-serif;
+    --font-display: 'Orbitron', sans-serif;
+}
+
+@layer base {
+    body {
+        @apply bg-dark-bg text-white font-sans overflow-x-hidden;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 4px;
+}
+
+/* Glitch Effect */
+.glitch-text {
+    position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-dark-bg);
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 var(--color-primary);
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+    background: transparent;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 var(--color-accent);
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+    background: transparent;
+}
+
+@keyframes glitch-anim-1 {
+    0% {
+        clip-path: inset(20% 0 80% 0);
+    }
+
+    20% {
+        clip-path: inset(60% 0 1% 0);
+    }
+
+    40% {
+        clip-path: inset(40% 0 50% 0);
+    }
+
+    60% {
+        clip-path: inset(80% 0 5% 0);
+    }
+
+    80% {
+        clip-path: inset(10% 0 70% 0);
+    }
+
+    100% {
+        clip-path: inset(30% 0 40% 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip-path: inset(10% 0 60% 0);
+    }
+
+    20% {
+        clip-path: inset(30% 0 20% 0);
+    }
+
+    40% {
+        clip-path: inset(10% 0 50% 0);
+    }
+
+    60% {
+        clip-path: inset(50% 0 30% 0);
+    }
+
+    80% {
+        clip-path: inset(10% 0 5% 0);
+    }
+
+    100% {
+        clip-path: inset(40% 0 20% 0);
+    }
+}
+
+nav.scrolled {
+    @apply bg-dark-bg/95 backdrop-blur-md shadow-lg shadow-black/30;
+}
+
+/* Animations */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobile-menu.active {
+    right: 0 !important;
+}
+
+/* Typing cursor */
+.typing-cursor {
+    border-right: 3px solid var(--color-accent);
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        border-color: var(--color-accent);
+    }
+
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Service Card */
+.service-card {
+    @apply bg-dark-card rounded-3xl p-12 relative overflow-hidden border border-white/5 transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/20;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+}
+
+.service-card:hover::before {
+    opacity: 0.05;
+}
+
+/* Portfolio Item */
+.portfolio-item {
+    @apply relative rounded-2xl overflow-hidden bg-dark-card cursor-pointer aspect-[16/10];
+}
+
+.portfolio-overlay {
+    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-t from-dark-bg/95 to-transparent flex flex-col justify-end p-8 opacity-0 transition-opacity duration-300;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    @apply opacity-100;
+}
+
+.portfolio-item img,
+.portfolio-item .placeholder-img {
+    @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.portfolio-item:hover img,
+.portfolio-item:hover .placeholder-img {
+    transform: scale(1.1);
+}
+
+/* Contact Method */
+.contact-method {
+    @apply flex items-center gap-4 p-6 bg-dark-card rounded-2xl border border-white/5 transition-all duration-300 hover:border-primary hover:translate-x-2;
+}
+
+/* Section Reveal Class for GSAP */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+}

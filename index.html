@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iconic Byte - 3D Animation & AI Solutions</title>
+  <meta name="description"
+    content="Iconic Byte transforms your digital presence with stunning 3D animations, AI-powered web solutions, and modern UI/UX design.">
+  <meta name="keywords"
+    content="3D Animation, AI Chatbots, Web Development, UI/UX Design, Motion Graphics, Iconic Byte">
+  <meta property="og:title" content="Iconic Byte - 3D Animation & AI Solutions">
+  <meta property="og:description"
+    content="Next-Gen Digital Solutions. We craft stunning 3D animations and intelligent AI-powered web solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://iconicbyte.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Iconic Byte",
+    "url": "https://iconicbyte.com",
+    "logo": "https://iconicbyte.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-945-290-4946",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "https://wa.me/19452904946"
+    ]
+  }
+  </script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-dark-bg text-white font-sans overflow-x-hidden selection:bg-primary selection:text-white">
+
+  <!-- Loader -->
+  <div
+    class="loader-wrapper fixed inset-0 z-[10000] flex justify-center items-center bg-dark-bg transition-all duration-500"
+    id="loader">
+    <div class="loader relative w-[120px] h-[120px]">
+      <div
+        class="loader-ring absolute inset-0 border-[3px] border-transparent border-t-primary rounded-full animate-spin">
+      </div>
+      <div
+        class="loader-ring absolute w-[80%] h-[80%] top-[10%] left-[10%] border-[3px] border-transparent border-t-secondary rounded-full animate-[spin_1.2s_linear_infinite_reverse]">
+      </div>
+      <div
+        class="loader-ring absolute w-[60%] h-[60%] top-[20%] left-[20%] border-[3px] border-transparent border-t-accent rounded-full animate-[spin_0.9s_linear_infinite]">
+      </div>
+      <span
+        class="loader-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display font-bold text-xs bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">IB</span>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div
+    class="cursor w-5 h-5 border-2 border-primary rounded-full fixed pointer-events-none z-[9999] opacity-0 lg:opacity-100 transition-transform duration-100 ease-out mix-blend-difference top-0 left-0 hidden lg:block"
+    id="cursor"></div>
+  <div
+    class="cursor-follower w-2 h-2 bg-accent rounded-full fixed pointer-events-none z-[9999] opacity-0 lg:opacity-100 transition-transform duration-75 ease-out top-0 left-0 hidden lg:block"
+    id="cursor-follower"></div>
+
+  <!-- Navigation -->
+  <nav id="navbar"
+    class="fixed top-0 left-0 w-full px-[5%] py-4 flex justify-between items-center z-[1000] transition-all duration-300">
+    <a href="#"
+      class="logo font-display text-2xl font-extrabold flex items-center gap-2 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+      <div
+        class="logo-icon w-10 h-10 bg-gradient-to-r from-primary via-secondary to-accent rounded-[10px] flex items-center justify-center text-white text-lg rounded-xl">
+        <i class="fas fa-bolt text-white"></i>
+      </div>
+      ICONIC BYTE
+    </a>
+    <ul class="nav-links hidden md:flex gap-8 list-none">
+      <li><a href="#hero"
+          class="text-gray-400 hover:text-white font-medium relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full py-2">Home</a>
+      </li>
+      <li><a href="#services"
+          class="text-gray-400 hover:text-white font-medium relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full py-2">Services</a>
+      </li>
+      <li><a href="#about"
+          class="text-gray-400 hover:text-white font-medium relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full py-2">About</a>
+      </li>
+      <li><a href="#portfolio"
+          class="text-gray-400 hover:text-white font-medium relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full py-2">Portfolio</a>
+      </li>
+      <li><a href="#contact"
+          class="text-gray-400 hover:text-white font-medium relative transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full py-2">Contact</a>
+      </li>
+    </ul>
+    <a href="#contact"
+      class="nav-cta hidden md:inline-block px-6 py-3 bg-gradient-to-r from-primary via-secondary to-accent rounded-full text-white font-bold hover:-translate-y-[2px] hover:shadow-lg hover:shadow-primary/40 transition-all duration-300">Get
+      Started</a>
+    <div class="menu-toggle flex flex-col gap-[6px] cursor-pointer z-[1001] md:hidden" id="menuToggle">
+      <span class="w-[30px] h-[2px] bg-white transition-all duration-300 block origin-center"></span>
+      <span class="w-[30px] h-[2px] bg-white transition-all duration-300 block origin-center"></span>
+      <span class="w-[30px] h-[2px] bg-white transition-all duration-300 block origin-center"></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    class="mobile-menu fixed top-0 -right-full w-full h-screen bg-dark-bg flex flex-col justify-center items-center gap-8 transition-[right] duration-500 z-[999]"
+    id="mobileMenu">
+    <a href="#hero" class="text-2xl font-bold hover:text-primary transition-colors">Home</a>
+    <a href="#services" class="text-2xl font-bold hover:text-primary transition-colors">Services</a>
+    <a href="#about" class="text-2xl font-bold hover:text-primary transition-colors">About</a>
+    <a href="#portfolio" class="text-2xl font-bold hover:text-primary transition-colors">Portfolio</a>
+    <a href="#contact" class="text-2xl font-bold hover:text-primary transition-colors">Contact</a>
+    <a href="#contact"
+      class="px-8 py-3 bg-gradient-to-r from-primary via-secondary to-accent rounded-full text-white font-bold text-xl mt-4">Get
+      Started</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+    <!-- Background Video -->
+    <div class="absolute inset-0 z-0 w-full h-full">
+      <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-40">
+        <source src="/src/assets/bg.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-bg/80 via-transparent to-dark-bg"></div>
+      <!-- Radial gradient overlay -->
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)]">
+      </div>
+    </div>
+
+    <div class="hero-content text-center z-10 max-w-4xl px-4 relative">
+      <div
+        class="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm text-primary mb-6 animate-pulse">
+        <i class="fas fa-rocket"></i>
+        <span>Next-Gen Digital Solutions</span>
+      </div>
+
+      <h1 class="hero-title font-display text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+        <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent glitch-text"
+          data-text="ICONIC BYTE">ICONIC BYTE</span><br>
+        <span id="typing-container" class="block h-[1.1em] text-white"></span>
+      </h1>
+
+      <p class="hero-description text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+        We craft stunning 3D animations and intelligent AI-powered web solutions
+        that transform your digital presence into an unforgettable experience.
+      </p>
+
+      <div class="hero-buttons flex gap-4 justify-center flex-wrap">
+        <a href="#contact"
+          class="px-8 py-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-full text-white font-bold hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 flex items-center gap-2 group relative overflow-hidden">
+          <span class="relative z-10">Start Your Project</span>
+          <i class="fas fa-paper-plane relative z-10 group-hover:translate-x-1 transition-transform"></i>
+          <div
+            class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out">
+          </div>
+        </a>
+        <a href="#portfolio"
+          class="px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white font-bold hover:border-primary hover:bg-primary/10 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
+          <i class="fas fa-play"></i>
+          View Our Work
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+      <span class="text-xs uppercase tracking-[0.2em] text-gray-400">Scroll</span>
+      <i class="fas fa-chevron-down text-primary text-xl"></i>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-32 px-[5%] relative">
+    <div class="text-center mb-16 reveal">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm text-primary mb-4">
+        <i class="fas fa-cogs"></i>
+        <span>What We Offer</span>
+      </div>
+      <h2 class="font-display text-4xl md:text-6xl font-extrabold mb-4">Our <span
+          class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Services</span>
+      </h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+        We specialize in cutting-edge digital solutions that bring your vision to life
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <div class="service-card reveal group">
+        <div
+          class="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center text-3xl text-white mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/30">
+          <i class="fas fa-cube"></i>
+        </div>
+        <h3 class="font-display text-2xl font-bold mb-4 relative z-10">3D Animation</h3>
+        <p class="text-gray-400 leading-relaxed mb-6 relative z-10">
+          Stunning 3D animations and visual effects that captivate your audience
+          and bring your brand story to life with cinematic quality.
+        </p>
+        <ul class="space-y-3 mb-8 relative z-10 text-gray-400">
+          <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Product Visualization</li>
+          <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Motion Graphics</li>
+          <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Character Animation</li>
+          <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Architectural Renders</li>
+        </ul>
+        <a href="#contact"
+          class="inline-flex items-center gap-2 text-primary font-semibold relative z-10 hover:gap-4 transition-all">
+          Learn More <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="service-card reveal group">
+        <div
+          class="w-20 h-20 bg-gradient-to-r from-accent to-primary rounded-2xl flex items-center justify-center text-3xl text-white mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-accent/30">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3 class="font-display text-2xl font-bold mb-4 relative z-10">AI Web Solutions</h3>
+        <p class="text-gray-400 leading-relaxed mb-6 relative z-10">
+          Intelligent AI-powered websites and chatbots that enhance user
+          experience and automate customer interactions 24/7.
+        </p>
+        <ul class="space-y-3 mb-8 relative z-10 text-gray-400">
+          <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> AI Chatbots & Assistants
+          </li>
+          <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Smart Web Applications
+          </li>
+          <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> UI/UX Design</li>
+          <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Custom Integrations</li>
+        </ul>
+        <a href="#contact"
+          class="inline-flex items-center gap-2 text-primary font-semibold relative z-10 hover:gap-4 transition-all">
+          Learn More <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-32 px-[5%] bg-dark-surface relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="relative reveal">
+        <div
+          class="w-full aspect-square bg-gradient-to-br from-primary to-secondary rounded-[3rem] flex items-center justify-center relative overflow-hidden shadow-2xl shadow-primary/20 group">
+          <div
+            class="absolute w-[200%] h-[200%] bg-[conic-gradient(from_0deg,transparent,rgba(255,255,255,0.1),transparent)] animate-[spin_10s_linear_infinite]">
+          </div>
+          <i
+            class="fas fa-code text-9xl text-white/90 relative z-10 group-hover:scale-110 transition-transform duration-500"></i>
+        </div>
+        <div
+          class="absolute -top-6 -right-6 bg-dark-card border border-white/10 p-6 rounded-2xl backdrop-blur-md shadow-xl animate-bounce [animation-duration:3s]">
+          <div
+            class="font-display text-4xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent stat-number"
+            data-count="100">0</div>
+          <div class="text-sm text-gray-400">Projects Completed</div>
+        </div>
+        <div
+          class="absolute -bottom-6 -left-6 bg-dark-card border border-white/10 p-6 rounded-2xl backdrop-blur-md shadow-xl animate-bounce [animation-duration:4s]">
+          <div
+            class="font-display text-4xl font-extrabold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent stat-number"
+            data-count="50">0</div>
+          <div class="text-sm text-gray-400">Happy Clients</div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm text-primary mb-6">
+          <i class="fas fa-info-circle"></i>
+          <span>About Us</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-extrabold mb-6">We Create <span
+            class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Digital
+            Excellence</span></h2>
+        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+          At Iconic Byte, we're passionate about pushing the boundaries of digital
+          creativity. Our team of expert designers, developers, and animators work
+          together to deliver exceptional results that exceed expectations.
+        </p>
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><i
+                class="fas fa-award"></i></div>
+            <span class="font-medium">Premium Quality</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><i
+                class="fas fa-clock"></i></div>
+            <span class="font-medium">On-Time Delivery</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><i
+                class="fas fa-headset"></i></div>
+            <span class="font-medium">24/7 Support</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><i
+                class="fas fa-sync"></i></div>
+            <span class="font-medium">Unlimited Revisions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-32 px-[5%]">
+    <div class="text-center mb-16 reveal">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm text-primary mb-4">
+        <i class="fas fa-briefcase"></i>
+        <span>Our Work</span>
+      </div>
+      <h2 class="font-display text-4xl md:text-6xl font-extrabold mb-4">Featured <span
+          class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Projects</span>
+      </h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+        Take a look at some of our recent work that showcases our expertise
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <!-- Portfolio Items (using gradients as placeholders) -->
+      <div class="portfolio-item reveal group">
+        <div
+          class="placeholder-img w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+          <i class="fas fa-cube text-6xl text-white/30"></i>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">3D Animation</span>
+          <h3 class="font-display text-xl font-bold mb-1">Product Showcase</h3>
+          <p class="text-gray-400 text-sm">Stunning visuals for e-commerce</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal group">
+        <div
+          class="placeholder-img w-full h-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
+          <i class="fas fa-robot text-6xl text-white/30"></i>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">AI Solution</span>
+          <h3 class="font-display text-xl font-bold mb-1">Smart Chatbot</h3>
+          <p class="text-gray-400 text-sm">Automated customer service</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal group">
+        <div
+          class="placeholder-img w-full h-full bg-gradient-to-br from-secondary to-pink-500 flex items-center justify-center">
+          <i class="fas fa-palette text-6xl text-white/30"></i>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">UI/UX Design</span>
+          <h3 class="font-display text-xl font-bold mb-1">Modern Dashboard</h3>
+          <p class="text-gray-400 text-sm">Intuitive admin panel system</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal group">
+        <div
+          class="placeholder-img w-full h-full bg-gradient-to-br from-amber-500 to-red-500 flex items-center justify-center">
+          <i class="fas fa-film text-6xl text-white/30"></i>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Motion Graphics</span>
+          <h3 class="font-display text-xl font-bold mb-1">Brand Animation</h3>
+          <p class="text-gray-400 text-sm">Dynamic logo reveal</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal group">
+        <div
+          class="placeholder-img w-full h-full bg-gradient-to-br from-emerald-500 to-accent flex items-center justify-center">
+          <i class="fas fa-globe text-6xl text-white/30"></i>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Web Development</span>
+          <h3 class="font-display text-xl font-bold mb-1">E-Commerce Platform</h3>
+          <p class="text-gray-400 text-sm">Full-stack shopping experience</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal group">
+        <div
+          class="placeholder-img w-full h-full bg-gradient-to-br from-pink-500 to-primary flex items-center justify-center">
+          <i class="fas fa-vr-cardboard text-6xl text-white/30"></i>
+        </div>
+        <div class="portfolio-overlay">
+          <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Interactive 3D</span>
+          <h3 class="font-display text-xl font-bold mb-1">Virtual Tour</h3>
+          <p class="text-gray-400 text-sm">Immersive 3D experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-32 px-[5%] bg-dark-surface relative">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div class="contact-info reveal">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm text-primary mb-6">
+          <i class="fas fa-envelope"></i>
+          <span>Get In Touch</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-extrabold mb-6">Let's Create Something <span
+            class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Amazing</span>
+        </h2>
+        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+          Ready to transform your digital presence? We're here to help bring your
+          vision to life. Reach out and let's discuss your project.
+        </p>
+
+        <div class="flex flex-col gap-6">
+          <a href="https://wa.me/19452904946" target="_blank" class="contact-method group">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-transform">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-lg">WhatsApp</h4>
+              <span class="text-gray-400 text-sm">+1 (945) 290-4946</span>
+            </div>
+          </a>
+          <a href="mailto:byteiconic@gmail.com" class="contact-method group">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-accent to-secondary rounded-xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-transform">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-lg">Email Us</h4>
+              <span class="text-gray-400 text-sm">byteiconic@gmail.com</span>
+            </div>
+          </a>
+          <a href="tel:+19452904946" class="contact-method group">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-secondary to-primary rounded-xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-transform">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-lg">Call Us</h4>
+              <span class="text-gray-400 text-sm">+1 (945) 290-4946</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-dark-card p-10 rounded-3xl border border-white/5 shadow-2xl reveal">
+        <form class="flex flex-col gap-6" id="contactForm">
+          <div class="relative group">
+            <input type="text" id="name" placeholder=" " required
+              class="w-full px-6 py-4 bg-dark-bg border border-white/10 rounded-xl text-white outline-none focus:border-primary transition-colors peer">
+            <label for="name"
+              class="absolute left-6 top-1/2 -translate-y-1/2 text-gray-500 transition-all peer-focus:-top-2 peer-focus:left-4 peer-focus:text-xs peer-focus:text-primary peer-focus:bg-dark-card peer-focus:px-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:left-4 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-primary peer-not-placeholder-shown:bg-dark-card peer-not-placeholder-shown:px-2 pointer-events-none">Your
+              Name</label>
+          </div>
+          <div class="relative group">
+            <input type="email" id="email" placeholder=" " required
+              class="w-full px-6 py-4 bg-dark-bg border border-white/10 rounded-xl text-white outline-none focus:border-primary transition-colors peer">
+            <label for="email"
+              class="absolute left-6 top-1/2 -translate-y-1/2 text-gray-500 transition-all peer-focus:-top-2 peer-focus:left-4 peer-focus:text-xs peer-focus:text-primary peer-focus:bg-dark-card peer-focus:px-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:left-4 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-primary peer-not-placeholder-shown:bg-dark-card peer-not-placeholder-shown:px-2 pointer-events-none">Email
+              Address</label>
+          </div>
+          <div class="relative group">
+            <input type="text" id="subject" placeholder=" " required
+              class="w-full px-6 py-4 bg-dark-bg border border-white/10 rounded-xl text-white outline-none focus:border-primary transition-colors peer">
+            <label for="subject"
+              class="absolute left-6 top-1/2 -translate-y-1/2 text-gray-500 transition-all peer-focus:-top-2 peer-focus:left-4 peer-focus:text-xs peer-focus:text-primary peer-focus:bg-dark-card peer-focus:px-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:left-4 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-primary peer-not-placeholder-shown:bg-dark-card peer-not-placeholder-shown:px-2 pointer-events-none">Subject</label>
+          </div>
+          <div class="relative group">
+            <textarea id="message" placeholder=" " required
+              class="w-full px-6 py-4 bg-dark-bg border border-white/10 rounded-xl text-white outline-none focus:border-primary transition-colors h-40 resize-none peer"></textarea>
+            <label for="message"
+              class="absolute left-6 top-6 text-gray-500 transition-all peer-focus:-top-2 peer-focus:left-4 peer-focus:text-xs peer-focus:text-primary peer-focus:bg-dark-card peer-focus:px-2 peer-placeholder-shown:top-6 peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:left-4 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-primary peer-not-placeholder-shown:bg-dark-card peer-not-placeholder-shown:px-2 pointer-events-none">Your
+              Message</label>
+          </div>
+          <button type="submit"
+            class="w-full py-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-xl text-white font-bold hover:shadow-lg hover:shadow-primary/40 transition-all hover:-translate-y-1">
+            <i class="fas fa-paper-plane mr-2"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-16 px-[5%] bg-dark-bg border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div class="lg:col-span-2">
+          <a href="#"
+            class="font-display text-2xl font-extrabold flex items-center gap-2 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-6">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-primary via-secondary to-accent rounded-lg flex items-center justify-center text-white text-base">
+              <i class="fas fa-bolt"></i>
+            </div>
+            ICONIC BYTE
+          </a>
+          <p class="text-gray-400 leading-relaxed mb-8 max-w-sm">
+            Crafting exceptional digital experiences through innovative
+            3D animation and AI-powered solutions.
+          </p>
+          <div class="flex gap-4">
+            <a href="#"
+              class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition-all duration-300 hover:-translate-y-1"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="#"
+              class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition-all duration-300 hover:-translate-y-1"><i
+                class="fab fa-twitter"></i></a>
+            <a href="#"
+              class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition-all duration-300 hover:-translate-y-1"><i
+                class="fab fa-instagram"></i></a>
+            <a href="#"
+              class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition-all duration-300 hover:-translate-y-1"><i
+                class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-display font-bold text-xl mb-6">Quick Links</h4>
+          <ul class="space-y-4">
+            <li><a href="#hero" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-primary transition-colors">Services</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-primary transition-colors">About</a></li>
+            <li><a href="#portfolio" class="text-gray-400 hover:text-primary transition-colors">Portfolio</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-display font-bold text-xl mb-6">Contact</h4>
+          <ul class="space-y-4">
+            <li><a href="tel:+19452904946" class="text-gray-400 hover:text-primary transition-colors">+1 (945)
+                290-4946</a></li>
+            <li><a href="mailto:byteiconic@gmail.com"
+                class="text-gray-400 hover:text-primary transition-colors">byteiconic@gmail.com</a></li>
+            <li><a href="https://wa.me/19452904946"
+                class="text-gray-400 hover:text-primary transition-colors">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <p>&copy; 2024 Iconic Byte. All rights reserved.</p>
+        <p>Designed with <i class="fas fa-heart text-red-500 mx-1"></i> by Iconic Byte</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/19452904946" target="_blank"
+    class="fixed bottom-8 right-8 w-[60px] h-[60px] bg-[#25D366] rounded-full flex items-center justify-center text-white text-3xl shadow-[0_10px_40px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_50px_rgba(37,211,102,0.6)] hover:scale-110 transition-all duration-300 z-[1000] animate-[pulse_2s_infinite] group">
+    <i class="fab fa-whatsapp"></i>
+    <span
+      class="absolute right-[70px] top-1/2 -translate-y-1/2 bg-white text-gray-800 px-4 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 visible group-hover:visible transition-all duration-300 shadow-lg after:content-[''] after:absolute after:right-[-6px] after:top-1/2 after:-translate-y-1/2 after:border-4 after:border-transparent after:border-l-white">Chat
+      with us!</span>
+  </a>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
