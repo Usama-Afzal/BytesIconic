@@ -7,18 +7,22 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: '#6366f1',
-                secondary: '#8b5cf6',
-                accent: '#06b6d4',
-                'dark-bg': '#0a0a0f',
-                'dark-surface': '#121218',
-                'dark-card': '#1a1a24',
+                primary: 'var(--color-primary)',
+                secondary: 'var(--color-secondary)',
+                accent: 'var(--color-accent)',
+                bg: 'var(--color-bg)',
+                surface: 'var(--color-surface)',
+                card: 'var(--color-card)',
+                text: 'var(--color-text)',
+                'text-muted': 'var(--color-text-muted)',
+                border: 'var(--color-border)',
             },
             fontFamily: {
-                sans: ['Space Grotesk', 'sans-serif'],
-                display: ['Orbitron', 'sans-serif'],
+                sans: ['Roboto', 'sans-serif'],
+                display: ['Roboto', 'sans-serif'],
             },
         },
     },
     plugins: [],
+    darkMode: 'class', // Enable class-based dark mode
 }

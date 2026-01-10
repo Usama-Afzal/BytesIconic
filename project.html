@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Details - Iconic Byte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+
+<body
+    class="bg-bg text-text font-sans antialiased selection:bg-primary selection:text-white transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav id="navbar"
+        class="fixed top-0 left-0 w-full px-[5%] py-6 flex justify-between items-center z-[1000] transition-all duration-300">
+        <a href="/index.html" class="flex items-center gap-3 group">
+            <div
+                class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-bold text-lg tracking-tight leading-none">Back to Home</span>
+            </div>
+        </a>
+
+        <div class="flex items-center gap-8">
+            <button id="themeToggle"
+                class="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted hover:text-primary transition-all hover:scale-110 focus:outline-none"
+                aria-label="Toggle Theme">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="pt-40 pb-20 px-[5%] text-center max-w-5xl mx-auto">
+        <span
+            class="inline-block px-3 py-1 bg-primary/10 rounded-full text-xs font-bold text-primary mb-6 tracking-wide uppercase">
+            Featured Project
+        </span>
+        <h1 class="text-5xl md:text-7xl font-black leading-[1.1] mb-8">Modern E-Commerce Interaction</h1>
+        <p class="text-xl text-text-muted max-w-2xl mx-auto mb-12">
+            A complete redesign of an online shopping experience, focusing on conversion optimization and seamless user
+            flow.
+        </p>
+
+        <!-- Project Visual -->
+        <div
+            class="w-full aspect-video bg-gradient-to-br from-card to-surface rounded-2xl border border-border overflow-hidden shadow-2xl relative group">
+            <!-- Placeholder Icon -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fas fa-laptop-code text-9xl text-primary/20"></i>
+            </div>
+            <!-- Mockup Image Overlay logic could go here -->
+        </div>
+    </section>
+
+    <!-- Project Info Grid -->
+    <section class="py-10 px-[5%] bg-surface border-y border-border">
+        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-text-muted text-sm font-bold uppercase tracking-wider mb-2">Client</h4>
+                <p class="text-lg font-medium">TechNova Systems</p>
+            </div>
+            <div>
+                <h4 class="text-text-muted text-sm font-bold uppercase tracking-wider mb-2">Service</h4>
+                <p class="text-lg font-medium">UI/UX & Development</p>
+            </div>
+            <div>
+                <h4 class="text-text-muted text-sm font-bold uppercase tracking-wider mb-2">Timeline</h4>
+                <p class="text-lg font-medium">3 Months</p>
+            </div>
+            <div>
+                <h4 class="text-text-muted text-sm font-bold uppercase tracking-wider mb-2">Role</h4>
+                <p class="text-lg font-medium">Lead Designer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Content -->
+    <section class="py-32 px-[5%]">
+        <div class="max-w-3xl mx-auto space-y-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">The Challenge</h2>
+                <p class="text-text-muted leading-relaxed text-lg">
+                    The client needed a platform that was not only visually appealing but also highly functional. The
+                    existing solution was outdated and suffered from high cart abandonment rates. Our goal was to
+                    simplify the checkout process and create an immersive product browsing experience.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-3xl font-bold mb-6">The Solution</h2>
+                <p class="text-text-muted leading-relaxed text-lg mb-6">
+                    We approached this project with a mobile-first mindset. By utilizing modern web technologies like
+                    React and Tailwind CSS, we built a lightning-fast interface.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-primary text-xl"></i>
+                        <span class="text-lg">Streamlined Checkout Flow</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-primary text-xl"></i>
+                        <span class="text-lg">AI-Powered Product Recommendations</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-primary text-xl"></i>
+                        <span class="text-lg">Real-time Inventory Management</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Result Card -->
+            <div class="bg-card p-8 rounded-2xl border border-border shadow-lg mt-12">
+                <h3 class="text-2xl font-bold mb-4">Key Results</h3>
+                <div class="grid grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="text-4xl font-black text-primary mb-2">45%</div>
+                        <div class="text-sm text-text-muted">Conversion Increase</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-black text-secondary mb-2">2x</div>
+                        <div class="text-sm text-text-muted">Faster Load Time</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-black text-accent mb-2">98%</div>
+                        <div class="text-sm text-text-muted">User Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-[5%] border-t border-border bg-surface">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="font-black text-xl tracking-tight">ICONIC BYTE</span>
+            </div>
+            <div class="text-sm text-text-muted">
+                &copy; 2024 Iconic Byte. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
