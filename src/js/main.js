@@ -119,7 +119,7 @@ if (menuToggle && mobileMenu) {
 }
 
 // =========================================
-// Scroll Reveals (GSAP)
+// Scroll Reveals & Counters (GSAP)
 // =========================================
 const revealElements = document.querySelectorAll('.reveal');
 if (revealElements.length > 0) {
@@ -138,6 +138,27 @@ if (revealElements.length > 0) {
                 }
             }
         );
+    });
+}
+
+const stats = document.querySelectorAll('.stat-number');
+if (stats.length > 0) {
+    stats.forEach((stat) => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        gsap.to(stat, {
+            innerText: target,
+            duration: 2,
+            ease: 'power3.out',
+            snap: { innerText: 1 },
+            onUpdate: function () {
+                this.targets()[0].innerText = Math.ceil(this.targets()[0].innerText) + '+';
+            },
+            scrollTrigger: {
+                trigger: stat,
+                start: 'top 90%',
+                toggleActions: 'play none none reverse'
+            }
+        });
     });
 }
 
