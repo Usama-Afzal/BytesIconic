@@ -46,7 +46,7 @@ const projects = {
         gallery: []
     },
     5: {
-        title: 'UI/UX & Product Development',
+        title: 'UI/UX & Product Animation',
         description: 'Beautiful and easy-to-use designs for apps and websites, built to provide the best experience for your users.',
         overview: 'Our design philosophy focuses on the user. We create intuitive interfaces that are not only visually stunning but also highly functional across all devices.',
         services: ['User Interface Design', 'Experience Optimization', 'Prototyping'],
