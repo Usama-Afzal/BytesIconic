@@ -10,48 +10,82 @@ gsap.registerPlugin(ScrollTrigger);
 // =========================================
 const projects = {
     1: {
-        title: 'E-Commerce Platform',
-        description: 'Complete redesign and development of a luxury fashion e-commerce experience.',
-        overview: 'We partnered with a leading fashion brand to completely reimagine their digital shopping experience. The project involved extensive user research, prototyping, and development of a cutting-edge e-commerce platform.',
-        services: ['UI/UX Design', 'Web Development', 'Brand Identity'],
-        gradient: 'from-indigo-500 to-purple-600'
+        title: 'Our Portfolio',
+        description: 'A comprehensive collection of our digital works and creative innovations.',
+        overview: 'We showcase our diverse range of projects, from animation to web development. Each project is handled with precision and creativity to deliver the best results for our clients.',
+        services: ['Branding', 'Digital Solutions', 'Creative Design'],
+        image: '/section/section1.jpeg',
+        date: 'Jan 2026',
+        gallery: []
     },
     2: {
-        title: 'Fintech Dashboard',
-        description: 'Data-rich financial dashboard with real-time analytics and AI insights.',
-        overview: 'A comprehensive financial analytics platform designed for institutional investors. Features include real-time data visualization, AI-powered insights, and customizable reporting tools.',
-        services: ['UI/UX Design', 'Web Development', 'AI Website Bot'],
-        gradient: 'from-purple-500 to-pink-600'
+        title: '3D/2D Animation',
+        description: 'We bring stories to life with high-quality 3D and 2D animations, perfect for brands and storytelling.',
+        overview: 'Our animation team creates immersive visual experiences that captivate audiences. Whether it is a 3D product showcase or a 2D character animation, we ensure top-tier quality.',
+        services: ['3D Modeling', 'Character Animation', 'Storyboarding'],
+        image: '/section/section2.jpeg',
+        date: 'Dec 2025',
+        gallery: []
     },
     3: {
-        title: 'Healthcare App',
-        description: 'Patient-centered mobile application for telemedicine and health tracking.',
-        overview: 'An innovative telemedicine platform that connects patients with healthcare providers. The app includes video consultations, prescription management, and health monitoring features.',
-        services: ['UI/UX Design', 'Web Development'],
-        gradient: 'from-pink-500 to-red-600'
+        title: 'AI Bots & Automation',
+        description: 'Smarter business solutions with AI-powered chatbots and automated systems to save time and boost efficiency.',
+        overview: 'We develop intelligent AI bots that handle customer inquiries and automate repetitive tasks, allowing your business to scale faster and work more efficiently.',
+        services: ['AI Integration', 'Workflow Automation', 'Chatbot Development'],
+        image: '/section/section3.jpeg',
+        date: 'Nov 2025',
+        gallery: []
     },
     4: {
-        title: 'SaaS Platform',
-        description: 'Enterprise software solution with AI-powered automation features.',
-        overview: 'A comprehensive business automation platform designed for enterprise clients. Features intelligent workflow automation, team collaboration tools, and advanced analytics.',
-        services: ['UI/UX Design', 'Web Development', 'AI Website Bot'],
-        gradient: 'from-blue-500 to-indigo-600'
+        title: 'Motion Graphics',
+        description: 'Dynamic and engaging motion graphics that capture attention and communicate your message clearly.',
+        overview: 'Motion graphics are an essential part of modern marketing. We create high-energy visuals that help brands stand out on social media and digital platforms.',
+        services: ['Video Editing', 'Visual Effects', 'Kinetic Typography'],
+        image: '/section/section4.jpeg',
+        date: 'Oct 2025',
+        gallery: []
     },
     5: {
-        title: 'Brand Identity',
-        description: 'Complete brand system for a tech startup including logo and guidelines.',
-        overview: 'End-to-end brand identity development for an emerging technology startup. Deliverables included logo design, color palette, typography system, and comprehensive brand guidelines.',
-        services: ['Brand Identity & Graphics', 'Motion & 3D Animation'],
-        gradient: 'from-teal-500 to-blue-600'
+        title: 'UI/UX & Product Development',
+        description: 'Beautiful and easy-to-use designs for apps and websites, built to provide the best experience for your users.',
+        overview: 'Our design philosophy focuses on the user. We create intuitive interfaces that are not only visually stunning but also highly functional across all devices.',
+        services: ['User Interface Design', 'Experience Optimization', 'Prototyping'],
+        image: '/section/section5.jpeg',
+        date: 'Sep 2025',
+        gallery: []
     },
     6: {
-        title: '3D Product Showcase',
-        description: 'Interactive 3D product visualization for an electronics brand.',
-        overview: 'An immersive 3D product experience that allows customers to explore products in stunning detail. Features include 360° rotation, zoom functionality, and interactive hotspots.',
-        services: ['Motion & 3D Animation', 'Web Development'],
-        gradient: 'from-orange-500 to-yellow-600'
+        title: 'E-Commerce Solutions',
+        description: 'Complete online stores that make selling easy, with secure payments and a smooth shopping experience.',
+        overview: 'We build robust e-commerce platforms tailored to your business needs, ensuring a seamless journey from product discovery to secure checkout.',
+        services: ['Shopify Development', 'Payment Integration', 'Inventory Management'],
+        image: '/section/section6.jpeg',
+        date: 'Aug 2025',
+        gallery: []
     }
 };
+
+// =========================================
+// Dynamic Gallery Automation
+// =========================================
+// Automatically detect and import all images/videos from section* folders
+const galleryFiles = import.meta.glob([
+    '../../section*/*.{png,jpg,jpeg,gif,svg,webp,WEBP,mp4,webm,MP4,WEBM}'
+], { eager: true });
+
+Object.keys(galleryFiles).forEach(path => {
+    // Extract section ID (e.g., ../../section2/1.mp4 -> 2)
+    const match = path.match(/section(\d)\//);
+    if (match) {
+        const id = match[1];
+        if (projects[id]) {
+            const url = galleryFiles[path].default || galleryFiles[path];
+            const type = path.match(/\.(mp4|webm)$/i) ? 'video' : 'image';
+            projects[id].gallery.push({ type, url });
+        }
+    }
+});
+
 
 // =========================================
 // Theme Toggle Logic
@@ -175,11 +209,16 @@ function openProject(id) {
     if (!project || !modal || !modalContent) return;
 
     modalContent.innerHTML = `
-        <div class="aspect-video bg-gradient-to-br ${project.gradient} flex items-center justify-center relative">
-            <span class="text-white text-6xl font-bold opacity-20">0${id}</span>
+        <div class="aspect-video relative overflow-hidden">
+            <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
+            <div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white font-medium">
+                ${project.date}
+            </div>
         </div>
         <div class="p-8">
-            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-text);">${project.title}</h2>
+            <div class="flex justify-between items-start mb-4">
+                <h2 class="text-3xl font-bold" style="color: var(--color-text);">${project.title}</h2>
+            </div>
             <p class="text-base mb-8 leading-relaxed" style="color: var(--color-text-muted);">${project.overview}</p>
             
             <div class="mb-8">
@@ -189,10 +228,33 @@ function openProject(id) {
                 </div>
             </div>
             
-            <div class="grid grid-cols-2 gap-4 mb-8">
-                <div class="aspect-video rounded-lg bg-gradient-to-br ${project.gradient} opacity-60"></div>
-                <div class="aspect-video rounded-lg bg-gradient-to-br ${project.gradient} opacity-40"></div>
+            ${project.gallery && project.gallery.length > 0 ? `
+            <div class="mb-8">
+                <h3 class="text-sm font-medium uppercase tracking-wider mb-4 gradient-text">Project Gallery</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    ${project.gallery.map(item => `
+                        <div class="aspect-square rounded-xl overflow-hidden bg-surface border border-border group cursor-zoom-in">
+                            ${item.type === 'video' ? `
+                                <video controls class="w-full h-full object-cover">
+                                    <source src="${item.url}" type="video/mp4">
+                                </video>
+                            ` : `
+                                <img src="${item.url}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Gallery item">
+                            `}
+                        </div>
+                    `).join('')}
+                </div>
             </div>
+            ` : `
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="aspect-video rounded-lg overflow-hidden border border-border">
+                    <img src="${project.image}" class="w-full h-full object-cover opacity-80" alt="Detail 1">
+                </div>
+                <div class="aspect-video rounded-lg overflow-hidden border border-border">
+                    <img src="${project.image}" class="w-full h-full object-cover opacity-60" alt="Detail 2">
+                </div>
+            </div>
+            `}
             
             <a href="#contact" onclick="document.getElementById('projectModal').classList.remove('active'); document.body.style.overflow = '';" class="btn-primary inline-block px-8 py-4 rounded-lg font-medium text-center">
                 Start a Similar Project
